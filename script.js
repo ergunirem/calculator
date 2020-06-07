@@ -59,3 +59,12 @@ function numberClick(number) {
     }
     
 }
+
+function operationClick(argument) { 
+    if (operation == 'off') {
+        calculationList.push(argument);
+        operation = 'on'
+        document.getElementById("display").value = calculationList.join(" ");
+        console.log(calculationList);
+    }   
+}

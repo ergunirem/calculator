@@ -68,3 +68,10 @@ function operationClick(argument) {
         console.log(calculationList);
     }   
 }
+
+function solve() {
+    solveOperationOrder(calculationList);
+    calculate(calculationList);
+    result = calculationList[0];
+    document.getElementById("display").value = result;
+}

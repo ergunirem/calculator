@@ -75,3 +75,11 @@ function solve() {
     result = calculationList[0];
     document.getElementById("display").value = result;
 }
+
+function clr() {
+    result = 0;
+    document.getElementById("display").value = result;
+    operation = 'on';
+    calculationList.splice(0,calculationList.length);
+}
+

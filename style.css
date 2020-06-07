@@ -1,0 +1,13 @@
+/* FOOTER */
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center; 
+    font-family: 'Rosario', sans-serif;
+    font-weight: bold;
+    font-size: 15px;
+    word-spacing: 10px;
+    background-image: linear-gradient(rgb(231, 238, 136), rgb(247, 192, 15));
+}

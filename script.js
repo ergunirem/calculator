@@ -3,7 +3,7 @@ function operate(operator, arg1, arg2) {
         add: function (a, b){
             return a+b;
         },
-        sub: function(a, b){
+        subtract: function(a, b){
             return a-b;
         },
         multiply: function (a, b){
@@ -17,22 +17,27 @@ function operate(operator, arg1, arg2) {
     return functions[operator](arg1, arg2);
 }
 
-window.onload = myMain;
-
-function myMain() {
-  document.getElementById("buttons").onclick = buton;
-}
-
-function buton(e) {
-  if (e.target.tagName == 'input') {
-    console.log(e.target.value);
-  }
-}
-
 let result = 0;
-
-
+let operation = ''
 document.getElementById("result").value = result
-console.log(result);
 
- 
+function numberClick(number) {
+    if (operation == '') {
+        result = number;
+        document.getElementById("result").value = result
+        console.log(result);
+    } else {
+        result = operate(operation, result, number);
+        document.getElementById("result").value = result
+        console.log(result);
+    }
+}
+
+function operationClick(argument) {
+    operation = argument;
+    console.log(operation);
+}
+
+function solve() {
+    console.log(result);
+}

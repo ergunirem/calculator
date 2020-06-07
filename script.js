@@ -18,26 +18,29 @@ function operate(operator, arg1, arg2) {
 }
 
 let result = 0;
-let operation = ''
-document.getElementById("result").value = result
+let operation = 'start'
+document.getElementById("display").value = result
 
 function numberClick(number) {
-    if (operation == '') {
+    if (operation == 'start') {
         result = number;
-        document.getElementById("result").value = result
+        document.getElementById("display").value = result
         console.log(result);
     } else {
+        document.getElementById("display").value = number;
         result = operate(operation, result, number);
-        document.getElementById("result").value = result
         console.log(result);
     }
 }
 
 function operationClick(argument) {
+    //Displays the result of the previous calculation before a number for a new calculation is clicked
+    document.getElementById("display").value = result
+
+    //Saves the operator name to be used in operate() function
     operation = argument;
-    console.log(operation);
 }
 
 function solve() {
-    console.log(result);
+    document.getElementById("display").value = result;
 }

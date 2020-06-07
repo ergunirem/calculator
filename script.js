@@ -46,3 +46,16 @@ function calculate(list) {
     }
 }
 
+// onClick functions
+function numberClick(number) {
+    if (operation == 'on') {
+        calculationList.push(number); 
+        operation = 'off';  
+        document.getElementById("display").value = calculationList.join(" ");
+    }
+    else if (operation == 'off') {
+        calculationList[calculationList.length - 1] = Number(('' + calculationList[calculationList.length - 1]) + ('' + number));
+        document.getElementById("display").value = calculationList.join(" "); 
+    }
+    
+}

@@ -1,6 +1,7 @@
 // VARIABLES
 let result = 0;
 let operation = 'on'
+let floatinPoint = 'on'
 let calculationList = [];
 document.getElementById("display").value = result
 
@@ -49,7 +50,10 @@ function calculate(list) {
 
 // onClick functions
 function numberClick(number) {
-    if (operation == 'on') {
+    if(calculationList[calculationList.length - 1] == '/' && number == 0) {
+        alert('Division by zero is undefined');
+    }
+    else if (operation == 'on') {
         calculationList.push(number); 
         operation = 'off';  
         document.getElementById("display").value = calculationList.join(" ");
@@ -57,16 +61,24 @@ function numberClick(number) {
     else if (operation == 'off') {
         calculationList[calculationList.length - 1] = Number(('' + calculationList[calculationList.length - 1]) + ('' + number));
         document.getElementById("display").value = calculationList.join(" "); 
+    }   
+}
+
+function floatingPoint() {
+    if (operation == 'off' && floatinPoint == 'on') {
+        calculationList[calculationList.length - 1] = parseFloat(('' + calculationList[calculationList.length - 1]) + ('.' + 0)).toFixed(1);
+        document.getElementById("display").value = calculationList.join(" "); 
+        floatinPoint = 'off'
+        console.log(calculationList[calculationList.length - 1]);
     }
-    
 }
 
 function operationClick(argument) { 
     if (operation == 'off') {
         calculationList.push(argument);
-        operation = 'on'
+        operation = 'on';
+        floatinPoint = 'on';
         document.getElementById("display").value = calculationList.join(" ");
-        console.log(calculationList);
     }   
 }
 
@@ -74,8 +86,7 @@ function solve() {
     if(operation == 'off') {
         solveOperationOrder(calculationList);
         calculate(calculationList);
-        result = parseFloat((calculationList[0]).toFixed(7));
-        // result = calculationList[0];
+        result = parseFloat(calculationList[0].toFixed(7));
         document.getElementById("display").value = result;
     }
 }
@@ -93,3 +104,29 @@ function backspace() {
     calculationList.pop();
     document.getElementById("display").value = calculationList.join(" ");
 }
+
+
+//Adding keyboard support
+window.addEventListener("keypress", (e) => {
+    //for numbers in keyboard
+    if(e.keyCode > 47 && e.keyCode < 58) {
+        numberClick(e.key)
+    }
+
+    //for operators in keyboard
+    if (e.key == '+') {
+        operationClick('+');
+    }
+    if (e.key == '-') {
+        operationClick('-');
+    }
+    if (e.key == '*' ) {
+        operationClick('*');
+    }
+    if (e.key == '/' ) {
+        operationClick('/');
+    }
+    if (e.key == '=' ) {
+        solve();
+    }
+});

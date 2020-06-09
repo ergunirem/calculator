@@ -29,8 +29,9 @@ function operate(operator, arg1, arg2) {
 function solveOperationOrder(list) {
     for (let i = 0; i < list.length; i++) {
         if (list[i] == "*" || list[i] == "/") {
-            let temp = operate(list[i], list[i + 1], list[i - 1]);
+            let temp = operate(list[i], list[i - 1], list[i + 1]);
             list.splice((i-1), 3, temp);
+            i = 0;
         }
     }
 }
@@ -70,12 +71,16 @@ function operationClick(argument) {
 }
 
 function solve() {
-    solveOperationOrder(calculationList);
-    calculate(calculationList);
-    result = calculationList[0];
-    document.getElementById("display").value = result;
+    if(operation == 'off') {
+        solveOperationOrder(calculationList);
+        calculate(calculationList);
+        result = parseFloat((calculationList[0]).toFixed(7));
+        // result = calculationList[0];
+        document.getElementById("display").value = result;
+    }
 }
 
+//Clears the calculationList and resets the result to zero
 function clr() {
     result = 0;
     document.getElementById("display").value = result;

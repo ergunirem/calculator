@@ -88,3 +88,8 @@ function clr() {
     calculationList.splice(0,calculationList.length);
 }
 
+//Deletes the last element if user wishes to undo the last input
+function backspace() {
+    calculationList.pop();
+    document.getElementById("display").value = calculationList.join(" ");
+}

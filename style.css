@@ -1,3 +1,23 @@
+/* TABLE */
+table { 
+    table-layout: fixed; 
+    width: 70%;
+    /* display: flex; */
+    justify-content: center; 
+}
+
+table td { 
+    width: 33.33%; 
+    height: 80px; 
+}
+
+table td input[type="button"],
+table td input[type="text"] { 
+    width: 100%; 
+    height: 100%; 
+}
+
+
 /* FOOTER */
 footer {
     position: fixed;

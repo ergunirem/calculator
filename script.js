@@ -67,7 +67,6 @@ function numberClick(number) {
     else if (operation == 'off') {
         calculationList[calculationList.length - 1] = Number(('' + calculationList[calculationList.length - 1]) + ('' + number));
         document.getElementById("display").value = calculationList.join(" "); 
-        console.log(calculationList[calculationList.length - 1]);
     }   
 }
 
@@ -76,7 +75,6 @@ function floatingPoint() {
         calculationList[calculationList.length - 1] = (('' + calculationList[calculationList.length - 1]) + '.');
         document.getElementById("display").value = calculationList.join(" "); 
         floatinPoint = 'off'
-        console.log(calculationList[calculationList.length - 1]);
     }
 }
 

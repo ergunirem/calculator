@@ -136,4 +136,7 @@ window.addEventListener("keypress", (e) => {
     if (e.key == '=' ) {
         solve();
     }
+    if (e.key == '.' ) {
+        floatingPoint();
+    }
 });

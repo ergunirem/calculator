@@ -1,12 +1,19 @@
-// VARIABLES
+// VARIABLES & SELECTORS
+//To save and display the result of several operations
 let result = 0;
-let operation = 'on'
-let floatinPoint = 'on'
-let calculationList = [];
 document.getElementById("display").value = result
 
-// FUNCTIONS
+//To check if a new number is entered 
+let operation = 'on'
 
+//To check if the following numbers are decimal points 
+let floatinPoint = 'on'
+
+//To save user's several operations
+let calculationList = [];
+
+
+// FUNCTIONS
 function operate(operator, arg1, arg2) {
     let functions = {
         '+': function (a, b){
@@ -21,8 +28,7 @@ function operate(operator, arg1, arg2) {
         '/': function(a, b) {
             return a / b;
         }
-    };
-
+    }
     return functions[operator](arg1, arg2);
 }
 
@@ -37,7 +43,7 @@ function solveOperationOrder(list) {
     }
 }
 
-//Does the remaining of the calculations 
+//Does the remaining of the calculations and adjusts the list accordingly
 function calculate(list) {
     for (let i = 0; i < list.length; i++) {
         if (list[i] == "+" || list[i] == "-") {
@@ -61,12 +67,13 @@ function numberClick(number) {
     else if (operation == 'off') {
         calculationList[calculationList.length - 1] = Number(('' + calculationList[calculationList.length - 1]) + ('' + number));
         document.getElementById("display").value = calculationList.join(" "); 
+        console.log(calculationList[calculationList.length - 1]);
     }   
 }
 
 function floatingPoint() {
     if (operation == 'off' && floatinPoint == 'on') {
-        calculationList[calculationList.length - 1] = parseFloat(('' + calculationList[calculationList.length - 1]) + ('.' + 0)).toFixed(1);
+        calculationList[calculationList.length - 1] = (('' + calculationList[calculationList.length - 1]) + '.');
         document.getElementById("display").value = calculationList.join(" "); 
         floatinPoint = 'off'
         console.log(calculationList[calculationList.length - 1]);
@@ -74,7 +81,7 @@ function floatingPoint() {
 }
 
 function operationClick(argument) { 
-    if (operation == 'off') {
+    if (operation == 'off' && calculationList.length > 0) {
         calculationList.push(argument);
         operation = 'on';
         floatinPoint = 'on';

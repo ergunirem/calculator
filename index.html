@@ -5,43 +5,47 @@
         <link rel="stylesheet" type="text/css" href="style.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">  
     </head>
-    <body>
-        <h1>Irem's Calculator</h1>
+    <body style="background-color: #F0F0F0">
+        <h1>Online Calculator</h1>
+        <h6>Created by Irem</h6>
         <div id="buttons">
-            <table border="1"> 
+            <table border ="1"> 
                 <tr> 
-                    <td colspan="3"><input type="text" id="display"/></td> 
-                    <td><input type="button" value="⌫" onclick="backspace()"/> </td> 
-                    <td><input type="button" value="C" onclick="clr()"/> </td> 
-                    
+                    <td colspan="4"><input type="text" id="display"/></td>                     
                 </tr> 
-                <tr> 
-                    <td><input type="button" value="1" onclick="numberClick(1)"/> </td> 
-                    <td><input type="button" value="2" onclick="numberClick(2)"/> </td> 
-                    <td><input type="button" value="3" onclick="numberClick(3)"/> </td> 
-                    <td><input type="button" value="/" onclick="operationClick('/')"/> </td> 
-                </tr> 
-                <tr> 
-                    <td><input type="button" value="4" onclick="numberClick(4)"/> </td> 
-                    <td><input type="button" value="5" onclick="numberClick(5)"/> </td> 
-                    <td><input type="button" value="6" onclick="numberClick(6)"/> </td> 
-                    <td><input type="button" value="-" onclick="operationClick('-')"/> </td> 
+                <tr>
+                    <td><input type="button" value=" "/></td>
+                    <td><input type="button" value=" "/></td>
+                    <td><input type="button" value="C" onclick="clr()" id="delete"/> </td> 
+                    <td><input type="button" value="⌫" onclick="backspace()" id="delete"/> </td> 
                 </tr> 
                 <tr> 
                     <td><input type="button" value="7" onclick="numberClick(7)"/> </td> 
                     <td><input type="button" value="8" onclick="numberClick(8)"/> </td> 
                     <td><input type="button" value="9" onclick="numberClick(9)"/> </td> 
-                    <td><input type="button" value="+" onclick="operationClick('+')"/> </td> 
+                    <td><input type="button" value="/" onclick="operationClick('/')" id="operator"> </td> 
                 </tr> 
                 <tr> 
-                    <td><input type="button" value="." onclick="dis('.')"/> </td> 
-                    <td><input type="button" value="0" onclick="numberClick(0)"/> </td> 
-                    <td><input type="button" value="=" onclick="solve()"/> </td> 
-                    <td><input type="button" value="*" onclick="operationClick('*')"/> </td> 
+                    <td><input type="button" value="4" onclick="numberClick(4)"/> </td> 
+                    <td><input type="button" value="5" onclick="numberClick(5)"/> </td> 
+                    <td><input type="button" value="6" onclick="numberClick(6)"/> </td> 
+                    <td><input type="button" value="*" onclick="operationClick('*')" id="operator"/> </td> 
+                   
+                </tr> 
+                <tr> 
+                    <td><input type="button" value="1" onclick="numberClick(1)"/> </td> 
+                    <td><input type="button" value="2" onclick="numberClick(2)"/> </td> 
+                    <td><input type="button" value="3" onclick="numberClick(3)"/> </td> 
+                    <td><input type="button" value="-" onclick="operationClick('-')" id="operator"/> </td> 
+                </tr> 
+                <tr> 
+                    <td><input type="button" value="." onclick="floatingPoint()"/> </td> 
+                    <td><input type="button" value="0" onclick="numberClick(0)"/> </td>
+                    <td><input type="button" value="=" onclick="solve()" id="equal"/> </td>  
+                    <td><input type="button" value="+" onclick="operationClick('+')" id="operator"/> </td>   
                 </tr> 
             </table> 
         </div> 
-        <footer> 2020 - Created by Irem for The Odin Project</footer>
     </body>
     <script type="text/javascript" src="script.js"></script>
 </html>
